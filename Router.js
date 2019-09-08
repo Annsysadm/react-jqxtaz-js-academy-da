@@ -1,7 +1,16 @@
 import React from 'react';
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 
-export const Router = ({ name }) => {
-  return (
-    <h1>Hello {name}!</h1>
-  )
-};
+import App from "../App";
+import Recipe from "./Recipe";
+
+const Router = () => (
+  <BrowserRouter>
+    <Switch>
+      <Route path="/" component={App} exact />
+      <Route path="/recipe/:id" component={Recipe} />
+    </Switch>
+  </BrowserRouter>
+);
+
+export default Router;

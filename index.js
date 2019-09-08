@@ -6,20 +6,27 @@ import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { HashRouter, Route } from "react-router-dom"; // второй вариант
+import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Hello } from './Hello';
 import { About } from './About';
 import { Home } from './Home';
-import { Movies } from './Movies';
+import { MovieList } from './MovieList';
+
 import './style.css';
-import rootReducer from './reducers/rootReducer';
+// import rootReducer from './reducers/rootReducer';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import * as serviceWorker from './serviceWorker';
-import App from './containers/App';
+import App from './App';
+
+window.React = React;
 
 /* Создаем стор. applyMiddleware позволяет использовать асинхронные действия, 
   оборачиваем в composeWithDevTools чтобы потом смотреть как меняются данные в разные промежутки времени */
 
-const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk))); 
+// const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk))); 
+
 
 class App extends Component {
   constructor() {
@@ -45,17 +52,21 @@ class App extends Component {
               <Link to="/">Home</Link>
             </li>
             <li>
-              <Link to="/about/">About</Link>
+              <Link to="/about">[About]</Link>
             </li>
             <li>
-              <Link to="/movies/">Movies</Link>
+              <Link to="/movies/">MovieList</Link>
+            </li>
+            <li>
+              <Link to="/hello/">Hello</Link>
             </li>
           </ul>
         </nav>
 
         <Route path="/" exact component={Home} />
         <Route path="/about/" component={About} />
-        <Route path="/movies/" component={Movies} />
+        <Route path="/movielist/" component={MovieList} />
+        <Route path="/hello/" component={Hello} />
       </div>
     </Router>
       </div>
@@ -65,10 +76,11 @@ class App extends Component {
 
 render(<App />, document.getElementById('root'));
 
-ReactDOM.render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
-  document.getElementById('root')
-);
+
+// ReactDOM.render(
+//   <Provider store={store}>
+//     <App />
+//   </Provider>,
+//   document.getElementById('root')
+// );
 
