@@ -3,25 +3,35 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 export const About = ({ name }) => {
   return (
+    <div class="container">
+      <h3>I'm Anna Lysenko</h3>
+        <p><a href="https://github.com/Annsysadm">My github</a></p>
+        <p><a href="https://stackblitz.com/@Annsysadm">My stackblitz</a></p>
+    </div>
+  );
+}
+
+
+
     
-    <Router>
-      <div>
-        <nav>
-          <ul>
-            <li>
-              <Link to="https://{Annsysadm}.github.com">github</Link>
-            </li>
-            <li>
-              <Link to="https://stackblitz.com/@Annsysadm">stackblitz</Link>
-            </li>
-          </ul>
-        </nav>
-        <Route path="https://stackblitz.com/@Annsysadm" />
-        <Route path="https://{Annsysadm}.github.com"/>
-      </div>
-    </Router>
-  )
-};
+//     <Router>
+//       <div>
+//         <nav>
+//           <ul>
+//             <li>
+//               <Link to="https://{Annsysadm}.github.com">github</Link>
+//             </li>
+//             <li>
+//               <Link to="https://stackblitz.com/@Annsysadm">stackblitz</Link>
+//             </li>
+//           </ul>
+//         </nav>
+//         <Route path="https://stackblitz.com/@Annsysadm" />
+//         <Route path="https://{Annsysadm}.github.com"/>
+//       </div>
+//     </Router>
+//   )
+// };
 
 // This is my first React app!
 
